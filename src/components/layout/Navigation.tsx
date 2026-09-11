@@ -52,7 +52,7 @@ export function Navigation({ items, className }: NavigationProps) {
   };
 
   return (
-    <nav ref={navRef} className={cn('flex items-center gap-4 xl:gap-6.5', className)}>
+    <nav ref={navRef} className={cn('flex items-center gap-3.5 xl:gap-5.5', className)}>
       {items.map((item) => {
         const hasChildren = Boolean(item.children && item.children.length > 0);
         const isOpen = openDropdown === item.label;

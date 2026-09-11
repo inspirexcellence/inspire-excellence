@@ -26,8 +26,8 @@
   --color-muted-border-dark: #D0C9C0;
 
   /* ---- Font Families ---- */
-  --font-serif: var(--font-playfair), "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Garamond, Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   /* ---- Spacing Scale (section-level) ---- */
   --spacing-section: 7.5rem;

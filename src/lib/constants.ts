@@ -112,6 +112,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: 'Programs & Services',
     links: [
+      { label: 'Interactive Brochure', href: '/brochure' },
       { label: 'Founder Clarity Intensive', href: '/individuals/founder-clarity-intensive' },
       { label: 'Total Life Transformative', href: '/individuals/total-life-transformative' },
       { label: 'For Organisations', href: '/organisations' },

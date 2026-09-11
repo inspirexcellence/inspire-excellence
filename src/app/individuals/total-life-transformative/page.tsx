@@ -268,6 +268,52 @@ export default function TotalLifeTransformativePage() {
         </Container>
       </section>
 
+      {/* Interactive Flipbook Brochure Section */}
+      <section className="py-16 lg:py-24 bg-white border-b border-muted-border">
+        <Container>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <span className="font-sans text-xs uppercase tracking-widest text-[#D48B38] font-bold block mb-2">
+                INTERACTIVE EXECUTIVE DOCUMENT
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl text-navy mb-3">
+                Explore the Complete Program Brochure
+              </h2>
+              <p className="font-sans text-xs sm:text-sm text-charcoal/75 max-w-xl mx-auto">
+                Turn pages interactively, review curriculum modules, and explore the architecture of this 2-year private engagement.
+              </p>
+            </div>
+
+            {/* Flipbook Embed Frame */}
+            <div className="bg-[#FAF7F2] p-2 sm:p-4 rounded-md border border-muted-border shadow-card overflow-hidden">
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] min-h-[460px] sm:min-h-[580px] lg:min-h-[660px]">
+                <iframe
+                  src="https://heyzine.com/flip-book/8f47b7091b.html"
+                  title="Total Life Transformative Intensive Official Brochure"
+                  className="w-full h-full border-0 rounded-sm"
+                  allow="fullscreen"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-charcoal/70 px-2">
+              <span className="font-sans">
+                Tip: Click on page corners or use your keyboard arrows to flip pages.
+              </span>
+              <a
+                href="https://heyzine.com/flip-book/8f47b7091b.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-navy hover:text-[#D48B38] font-semibold underline"
+              >
+                Open in Fullscreen Mode ↗
+              </a>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Deliverables & Investment Block */}
       <section className="py-16 lg:py-24">
         <Container>

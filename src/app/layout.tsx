@@ -1,22 +1,23 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, Inter } from 'next/font/google';
+import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SITE_NAME, SITE_TAGLINE, SITE_DESCRIPTION, SITE_URL } from '@/lib/constants';
 import './globals.css';
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-cormorant',
   display: 'swap',
   weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
 });
 
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-jakarta',
   display: 'swap',
-  weight: ['300', '400', '500', '600'],
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -46,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${plusJakarta.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -58,13 +59,11 @@ export default function RootLayout({
               url: 'https://inspirexcellence.org',
               description: SITE_DESCRIPTION,
               foundingDate: '2017',
-              founders: [
-                {
-                  '@type': 'Person',
-                  name: 'Prerona Roy',
-                  jobTitle: 'Founder & Leadership Coach',
-                },
-              ],
+              founder: {
+                '@type': 'Person',
+                name: 'Prerona Roy',
+                jobTitle: 'Founder & Leadership Coach',
+              },
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: '3rd Floor, Star Lilly Apartment, 2 Dum Dum Park',
@@ -75,9 +74,9 @@ export default function RootLayout({
               },
               contactPoint: {
                 '@type': 'ContactPoint',
-                telephone: '+91-81002-11066',
-                email: 'admin@inspirexcellence.org',
+                telephone: '+91 81002 11066',
                 contactType: 'customer service',
+                email: 'admin@inspirexcellence.org',
               },
               sameAs: [
                 'https://www.facebook.com/InspireExcellence',
@@ -96,14 +95,13 @@ export default function RootLayout({
               '@type': 'WebSite',
               name: 'Inspire Excellence',
               url: 'https://inspirexcellence.org',
-              description: SITE_DESCRIPTION,
             }),
           }}
         />
       </head>
-      <body className="font-sans bg-ivory text-charcoal antialiased">
+      <body className="font-sans bg-ivory text-charcoal antialiased flex flex-col min-h-screen selection:bg-lavender/20 selection:text-navy">
         <Header />
-        <main>{children}</main>
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

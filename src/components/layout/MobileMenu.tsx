@@ -151,10 +151,22 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </div>
 
         {/* CTA Footer */}
-        <div className="p-5 sm:p-6 border-t border-muted-border bg-[#F5EDE4]/40">
-          <Button variant="primary" className="w-full justify-center" href="/contact" onClick={onClose}>
-            Let&apos;s Connect
-          </Button>
+        <div className="p-5 sm:p-6 border-t border-muted-border bg-[#F5EDE4]/40 flex flex-col gap-2.5">
+          <Link
+            href="/brochure"
+            onClick={onClose}
+            className="w-full bg-[#1A1A40] text-white hover:bg-[#2A2A5A] py-3 rounded-[2px] font-sans text-xs font-semibold tracking-wider flex items-center justify-center gap-2 transition-all shadow-xs"
+          >
+            <span>Interactive Brochure</span>
+            <span className="text-gold">📖</span>
+          </Link>
+          <Link
+            href="/contact"
+            onClick={onClose}
+            className="w-full text-center py-2.5 text-navy font-sans text-xs font-semibold hover:text-[#8B72BE] transition-colors"
+          >
+            Let&apos;s Connect →
+          </Link>
         </div>
       </div>
     </div>
