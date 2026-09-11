@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+/* ============================================
+   INSPIRE EXCELLENCE — Design Token System
+   ============================================ */
+
+@theme {
+  /* ---- Colors ---- */
+  --color-ivory: #FDF9F3;
+  --color-cream: #F5EDE4;
+  --color-cream-dark: #EBE1D5;
+  --color-navy: #1A1A40;
+  --color-navy-light: #2A2A5A;
+  --color-charcoal: #2D2D3F;
+  --color-charcoal-light: #4A4A5E;
+  --color-lavender: #8B72BE;
+  --color-lavender-light: #A690D0;
+  --color-lavender-muted: #B8A5D4;
+  --color-coral: #E07A5F;
+  --color-coral-light: #E8956E;
+  --color-teal: #5B9E9E;
+  --color-teal-light: #7AB5B5;
+  --color-gold: #C5A572;
+  --color-gold-light: #D4BA8E;
+  --color-muted-border: #E2DCD5;
+  --color-muted-border-dark: #D0C9C0;
+
+  /* ---- Font Families ---- */
+  --font-serif: var(--font-playfair), "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* ---- Spacing Scale (section-level) ---- */
+  --spacing-section: 7.5rem;
+  --spacing-section-lg: 10rem;
+
+  /* ---- Container ---- */
+  --container-max: 80rem;
+  --container-narrow: 64rem;
+
+  /* ---- Transitions ---- */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* ---- Shadows ---- */
+  --shadow-soft: 0 2px 20px rgba(26, 26, 64, 0.06);
+  --shadow-card: 0 4px 30px rgba(26, 26, 64, 0.08);
+  --shadow-elevated: 0 8px 40px rgba(26, 26, 64, 0.12);
+
+  /* ---- Border Radius ---- */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-full: 9999px;
+
+  /* ---- Animations ---- */
+  --animate-fade-in: fade-in 0.6s var(--ease-out-quart) forwards;
+  --animate-fade-up: fade-up 0.7s var(--ease-out-quart) forwards;
+  --animate-slide-in-right: slide-in-right 0.7s var(--ease-out-quart) forwards;
+  --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;
+  --animate-orbit: orbit 20s linear infinite;
+  --animate-draw-line: draw-line 1.5s var(--ease-out-quart) forwards;
+  --animate-scroll-indicator: scroll-indicator 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Keyframes
+   ============================================ */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes scroll-indicator {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+}
+
+::selection {
+  background-color: var(--color-lavender);
+  color: white;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-lavender);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Typography System
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-navy);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.section-padding {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: var(--spacing-section-lg);
+    padding-bottom: var(--spacing-section-lg);
+  }
+}
+
+/* Fine border utilities */
+.border-fine {
+  border-color: var(--color-muted-border);
+  border-width: 1px;
+}
+
+.border-fine-top {
+  border-top: 1px solid var(--color-muted-border);
+}
+
+.border-fine-bottom {
+  border-bottom: 1px solid var(--color-muted-border);
+}
+
+/* Accent italic text (Playfair Display italic in lavender) */
+.accent-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-lavender);
+}
+
+/* Section label (small uppercase tracking) */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-coral);
+}
