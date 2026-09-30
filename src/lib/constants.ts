@@ -11,7 +11,7 @@ import type { ContactInfo, Address, BusinessHours, SocialLinks } from '@/types/c
 export const SITE_NAME = 'Inspire Excellence';
 export const SITE_TAGLINE = 'People. Perspective. Process.';
 export const SITE_DESCRIPTION =
-  'We partner with individuals and organisations to unlock potential, shift perspective and create meaningful, lasting change.';
+  'We partner with visionary individuals and forward-thinking organisations to challenge conventional thinking, redefine possibilities and turn ambitious visions into extraordinary outcomes.';
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://inspirexcellence.org';
 
 // ---- Contact ----
@@ -76,12 +76,31 @@ export const MAIN_NAV: NavItem[] = [
     label: 'Organisations',
     href: '/organisations',
     children: [
-      { label: 'Overview & Capabilities', href: '/organisations' },
-      { label: 'Strategy & Alignment', href: '/services#strategy' },
-      { label: 'Culture Transformation', href: '/services#culture' },
-      { label: 'Process & Operating Model', href: '/services#process' },
-      { label: 'Leadership Development', href: '/services#leadership' },
-      { label: 'Change Implementation', href: '/services#change' },
+      {
+        label: 'Engagement Formats Overview',
+        href: '/organisations#engagement-formats',
+        description: 'Workshops, 90-Day sprints & long-term advisory.',
+      },
+      {
+        label: 'Executive Workshops',
+        href: '/organisations#engagement-formats',
+        description: 'Immersive learning & leadership capability.',
+      },
+      {
+        label: '90-Day Transformation',
+        href: '/organisations#engagement-formats',
+        description: 'Structured, outcome-driven interventions.',
+      },
+      {
+        label: '6–12-Month Strategic Advisory',
+        href: '/organisations#engagement-formats',
+        description: 'Sustained institutional excellence.',
+      },
+      {
+        label: 'Transformation Capabilities',
+        href: '/organisations',
+        description: 'Strategy, culture, process & operating models.',
+      },
     ],
   },
   {

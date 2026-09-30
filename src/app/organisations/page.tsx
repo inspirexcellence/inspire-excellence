@@ -11,17 +11,71 @@ import {
   ArrowRight,
   TrendingUp,
   CheckCircle2,
-  ShieldCheck,
+  Calendar,
+  Clock,
+  Briefcase,
+  Target,
 } from 'lucide-react';
 
 export const metadata = createMetadata({
   title: 'Organisations & Corporate Transformation — Inspire Excellence',
   description:
-    'End-to-end organizational alignment, culture evolution, operating model redesign, and leadership development for high-performing enterprises.',
+    'End-to-end organizational alignment, culture evolution, operating model redesign, and leadership development delivered across Executive Workshops, 90-Day Engagements, and 6–12-Month Partnerships.',
   path: '/organisations',
 });
 
 export default function OrganisationsPage() {
+  const engagementFormats = [
+    {
+      id: 'format-1',
+      title: 'Executive Workshops',
+      badge: 'IMMERSIVE & HIGH-IMPACT',
+      duration: 'Single / Multi-Day Intensive',
+      color: '#8B72BE',
+      description:
+        'Our Executive Workshops offer immersive, high-impact learning experiences that challenge conventional thinking, build leadership capabilities and initiate meaningful change.',
+      highlights: [
+        'Leadership mindset recalibration',
+        'Executive alignment & vision mapping',
+        'Psychological safety & high-trust culture',
+        'Direct, interactive facilitation',
+      ],
+      idealFor: 'Executive teams, department heads, and leadership retreats.',
+    },
+    {
+      id: 'format-2',
+      title: '90-Day Transformation Engagements',
+      badge: 'STRUCTURED & OUTCOME-DRIVEN',
+      duration: '3 Months (Quarterly Sprint)',
+      color: '#E07A5F',
+      description:
+        'Our 90-Day Transformation Engagements provide structured, outcome-driven interventions that translate strategic insights into measurable organizational progress.',
+      highlights: [
+        'Rapid operational & process diagnostics',
+        'Focused OKR & KPI synchronization',
+        'Bottleneck elimination & workflow speed',
+        'Bi-weekly milestone execution reviews',
+      ],
+      idealFor: 'Organisations tackling critical operational transitions or scaling hurdles.',
+    },
+    {
+      id: 'format-3',
+      title: '6–12-Month Strategic Advisory Partnerships',
+      badge: 'INSTITUTIONAL EXCELLENCE',
+      duration: '6 to 12 Months (Sustained Retainer)',
+      color: '#D48B38',
+      description:
+        'For organizations seeking deeper, sustained transformation, our 6–12-Month Strategic Advisory Partnerships offer ongoing guidance, leadership alignment and implementation support to embed change, strengthen organizational capabilities and build long-term institutional excellence.',
+      highlights: [
+        'Comprehensive 3P system implementation',
+        'Culture and narrative identity transformation',
+        'Executive coaching for key CXOs & board',
+        'Enduring governance & operating model architecture',
+      ],
+      idealFor: 'Enterprises committed to enduring multi-generational capability and scale.',
+    },
+  ];
+
   const capabilities = [
     {
       id: '01',
@@ -78,14 +132,14 @@ export default function OrganisationsPage() {
               </span>
             </div>
 
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-navy leading-[1.1] mb-6">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-navy leading-[1.08] mb-6">
               Transform systems, cultures <br />
               <span className="font-serif italic font-normal text-[#8B72BE]">and capabilities</span>{' '}
               <span className="font-serif italic font-normal text-[#E07A5F]">for the future.</span>
             </h1>
 
             <p className="font-sans text-base sm:text-lg text-charcoal/80 max-w-2xl leading-relaxed mb-8">
-              We partner with board members, CXOs, and business leaders to align people, perspective, and processes — turning ambitious strategic goals into measurable operational excellence.
+              We partner with visionary individuals and forward-thinking organisations to challenge conventional thinking, redefine possibilities and turn ambitious visions into extraordinary outcomes.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
@@ -96,13 +150,88 @@ export default function OrganisationsPage() {
                 <span>Request Corporate Consultation</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link
-                href="/case-studies"
+              <a
+                href="#engagement-formats"
                 className="border border-navy text-navy hover:bg-navy hover:text-white px-7 py-3.5 rounded-[2px] font-sans text-xs font-semibold tracking-wider transition-all"
               >
-                View Case Studies
-              </Link>
+                View Engagement Formats
+              </a>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Engagement Formats Section */}
+      <section id="engagement-formats" className="py-16 lg:py-24 border-b border-muted-border bg-white">
+        <Container>
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <span className="font-sans text-xs uppercase tracking-widest text-[#8B72BE] font-bold block mb-2">
+              THREE DISTINCT PATHWAYS
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl text-navy mb-6">
+              Corporate Transformation Engagement Formats
+            </h2>
+            <div className="bg-[#FAF7F2] p-6 sm:p-8 md:p-10 rounded-sm border border-muted-border/80 text-charcoal/90 font-sans text-sm sm:text-base leading-[1.85] tracking-wide text-justify [text-justify:inter-word]">
+              At Inspire Excellence Global Pvt. Ltd., our corporate transformation programs are delivered through three distinct engagement formats, designed to meet organizations at different stages of their growth and transformation journey. Our Executive Workshops offer immersive, high-impact learning experiences that challenge conventional thinking, build leadership capabilities and initiate meaningful change. Our 90-Day Transformation Engagements provide structured, outcome-driven interventions that translate strategic insights into measurable organizational progress. For organizations seeking deeper, sustained transformation, our 6–12-Month Strategic Advisory Partnerships offer ongoing guidance, leadership alignment and implementation support to embed change, strengthen organizational capabilities and build long-term institutional excellence. Each engagement is tailored to the organization&apos;s unique challenges, strategic priorities and growth ambitions.
+            </div>
+          </div>
+
+          {/* 3 Format Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {engagementFormats.map((format) => (
+              <div
+                key={format.id}
+                className="bg-[#FAF7F2] rounded-sm border border-muted-border shadow-xs flex flex-col justify-between p-8 sm:p-10 hover:shadow-card hover:-translate-y-1 transition-all duration-300"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <span
+                      className="font-sans text-[10.5px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-[2px] bg-white border border-muted-border"
+                      style={{ color: format.color }}
+                    >
+                      {format.badge}
+                    </span>
+                    <span className="font-sans text-xs text-charcoal/60 font-medium">
+                      {format.duration}
+                    </span>
+                  </div>
+
+                  <h3 className="font-serif text-2xl font-bold text-navy mb-3">
+                    {format.title}
+                  </h3>
+
+                  <p className="font-sans text-xs sm:text-sm text-charcoal/80 leading-relaxed mb-6">
+                    {format.description}
+                  </p>
+
+                  {/* Highlights */}
+                  <div className="space-y-2.5 pt-4 border-t border-muted-border/60 mb-6">
+                    <span className="font-sans text-[11px] uppercase tracking-wider text-charcoal/60 font-semibold block">
+                      Core Focus Areas:
+                    </span>
+                    {format.highlights.map((h, i) => (
+                      <div key={i} className="flex items-start gap-2 text-xs text-charcoal/85">
+                        <CheckCircle2 className="w-4 h-4 text-teal shrink-0 mt-0.5" />
+                        <span>{h}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-6 border-t border-muted-border">
+                  <span className="font-sans text-[11px] text-charcoal/60 block mb-4">
+                    <strong>Ideal for:</strong> {format.idealFor}
+                  </span>
+                  <Link
+                    href="/book-consultation"
+                    className="inline-flex items-center justify-center gap-2 w-full bg-navy text-white hover:bg-[#2A2A5A] py-2.5 rounded-[2px] font-sans text-xs font-semibold tracking-wider transition-all"
+                  >
+                    <span>Inquire About This Format</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
@@ -112,7 +241,7 @@ export default function OrganisationsPage() {
         <Container>
           <div className="text-center mb-16">
             <span className="font-sans text-xs uppercase tracking-widest text-[#8B72BE] font-bold block mb-2">
-              OUR CAPABILITIES
+              OUR EXPERTISE
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-navy">
               Comprehensive Transformation Frameworks

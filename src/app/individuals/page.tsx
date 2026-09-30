@@ -233,7 +233,23 @@ export default function IndividualsPage() {
               </div>
             </div>
 
-            {/* Row 6: Ideal For */}
+            {/* Row 6: Investment */}
+            <div className="grid grid-cols-1 md:grid-cols-12 border-b border-muted-border divide-y md:divide-y-0 md:divide-x divide-muted-border hover:bg-cream/20 transition-colors">
+              <div className="md:col-span-3 p-5 sm:p-6 bg-[#FAF7F2]/40 flex items-center gap-3 font-sans text-xs sm:text-sm font-bold text-navy uppercase tracking-wider">
+                <ShieldCheck className="w-4 h-4 text-gold" />
+                <span>Investment</span>
+              </div>
+              <div className="md:col-span-4.5 lg:col-span-4 p-5 sm:p-6">
+                <span className="font-serif text-2xl sm:text-3xl font-bold text-navy block mb-1">₹1,25,000</span>
+                <span className="font-sans text-xs text-charcoal/70">6-Month Bespoke Engagement</span>
+              </div>
+              <div className="md:col-span-4.5 lg:col-span-5 p-5 sm:p-6 bg-cream/10">
+                <span className="font-serif text-2xl sm:text-3xl font-bold text-[#D48B38] block mb-1">₹2,50,000</span>
+                <span className="font-sans text-xs text-charcoal/70">24-Month Private Flagship Engagement</span>
+              </div>
+            </div>
+
+            {/* Row 7: Ideal For */}
             <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-muted-border hover:bg-cream/20 transition-colors">
               <div className="md:col-span-3 p-5 sm:p-6 bg-[#FAF7F2]/40 flex items-center gap-3 font-sans text-xs sm:text-sm font-bold text-navy uppercase tracking-wider">
                 <CheckCircle2 className="w-4 h-4 text-teal" />

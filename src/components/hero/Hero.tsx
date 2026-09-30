@@ -42,8 +42,8 @@ export function Hero() {
           </h1>
 
           {/* Supporting Copy */}
-          <p className="font-sans text-[14px] sm:text-[16px] text-charcoal/85 leading-[1.7] sm:leading-[1.75] max-w-[460px] mb-8 sm:mb-10">
-            We partner with individuals and organisations to unlock potential, shift perspective and create meaningful, lasting change.
+          <p className="font-sans text-[14px] sm:text-[16px] text-charcoal/85 leading-[1.7] sm:leading-[1.75] max-w-[500px] mb-8 sm:mb-10">
+            We partner with visionary individuals and forward-thinking organisations to challenge conventional thinking, redefine possibilities and turn ambitious visions into extraordinary outcomes.
           </p>
 
           {/* Dual Action CTAs - Always side by side with natural button widths */}
