@@ -39,7 +39,7 @@ export function BeliefSection() {
     <section
       ref={sectionRef}
       id="belief"
-      className="section-padding bg-[#FAF7F2] border-t border-muted-border"
+      className="pt-16 sm:pt-20 pb-4 sm:pb-6 bg-[#FAF7F2] border-t border-muted-border"
     >
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Top Belief Two-Column Split matching reference image */}

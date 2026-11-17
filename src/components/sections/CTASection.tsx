@@ -23,7 +23,7 @@ export function CTASection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative py-20 lg:py-28 bg-[#1A1A40] text-white overflow-hidden">
+    <section ref={containerRef} className="relative py-16 sm:py-20 lg:py-24 bg-[#1A1A40] text-white overflow-hidden">
       {/* Background ambient circular lines */}
       <div className="absolute inset-0 opacity-15 pointer-events-none flex items-center justify-center">
         <div className="cta-bg-shape w-[800px] h-[800px] border border-white/20 rounded-full" />

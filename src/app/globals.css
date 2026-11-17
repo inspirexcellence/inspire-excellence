@@ -30,8 +30,8 @@
   --font-sans: var(--font-jakarta), "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   /* ---- Spacing Scale (section-level) ---- */
-  --spacing-section: 7.5rem;
-  --spacing-section-lg: 10rem;
+  --spacing-section: 4.5rem;
+  --spacing-section-lg: 5.75rem;
 
   /* ---- Container ---- */
   --container-max: 80rem;
@@ -208,4 +208,44 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-coral);
+}
+
+/* Infinite Marquee Animation */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-scroll-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee,
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+}
+
+.animate-marquee-reverse,
+.animate-marquee-infinite-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-reverse 35s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover,
+.animate-marquee-infinite:hover,
+.animate-marquee-infinite-reverse:hover {
+  animation-play-state: paused;
 }
