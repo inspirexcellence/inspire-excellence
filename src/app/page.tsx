@@ -18,10 +18,10 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      {/* Trusted by organisations social proof strip placed directly below Hero */}
-      <TrustedOrganisationsSection />
       <BeliefSection />
-      {/* Testimonials videos placed below the 3-P circle section */}
+      {/* Trusted By Leaders strip placed below the 3P section */}
+      <TrustedOrganisationsSection />
+      {/* Testimonials videos placed below the strip */}
       <VideoTestimonialsSection />
       <TransformationAreas />
       <StatsSection />

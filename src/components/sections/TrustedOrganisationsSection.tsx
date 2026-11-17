@@ -7,7 +7,20 @@ export function TrustedOrganisationsSection() {
   const [modError, setModError] = useState(false);
 
   return (
-    <section className="py-9 sm:py-12 bg-[#FAF7F2] border-y border-[#E8DDD0] relative overflow-hidden select-none">
+    <section className="py-10 sm:py-14 bg-[#FAF7F2] border-t border-muted-border relative overflow-hidden select-none">
+      {/* Section Header */}
+      <div className="text-center max-w-xl mx-auto px-4 mb-7 sm:mb-9">
+        <div className="flex flex-col items-center mb-2">
+          <div className="w-8 h-[1.5px] bg-[#8B72BE] mb-2" />
+          <span className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.22em] text-[#8B72BE] uppercase">
+            ORGANISATIONS & ASSOCIATIONS
+          </span>
+        </div>
+        <h2 className="font-serif text-3xl sm:text-4xl text-navy leading-[1.15]">
+          Trusted By Leaders
+        </h2>
+      </div>
+
       {/* Edge gradient masks for seamless fade on sides */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#FAF7F2] to-transparent z-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#FAF7F2] to-transparent z-10" />
