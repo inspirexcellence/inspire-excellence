@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: '*.inspirexcellence.org',
+      },
+      {
+        protocol: 'https',
         hostname: '*.wp.com',
       },
       {

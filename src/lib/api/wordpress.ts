@@ -2,7 +2,7 @@ export class WPClient {
   private baseUrl: string;
 
   constructor() {
-    this.baseUrl = process.env.NEXT_PUBLIC_WP_URL || '';
+    this.baseUrl = process.env.NEXT_PUBLIC_WP_URL || process.env.WORDPRESS_API_URL || 'https://inspirexcellence.org';
   }
 
   async fetch<T>(endpoint: string, params: Record<string, string> = {}): Promise<T | null> {
@@ -12,24 +12,32 @@ export class WPClient {
     }
 
     try {
-      const url = new URL(`${this.baseUrl}/wp-json/wp/v2/${endpoint}`);
+      const cleanBase = this.baseUrl.replace(/\/+$/, '');
+      const url = new URL(`${cleanBase}/wp-json/wp/v2/${endpoint}`);
       Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 7000);
+
       const response = await fetch(url.toString(), {
-        next: { revalidate: 3600 },
+        next: { revalidate: 1800 },
         headers: {
           'Content-Type': 'application/json',
-        }
+          'User-Agent': 'InspireExcellence-NextApp/1.0',
+        },
+        signal: controller.signal,
       });
 
+      clearTimeout(timeoutId);
+
       if (!response.ok) {
-        console.error(`WP API Error: ${response.status} ${response.statusText}`);
+        console.warn(`WP API returned HTTP ${response.status} ${response.statusText}`);
         return null;
       }
 
       return await response.json();
     } catch (error) {
-      console.error('WP Fetch Error:', error);
+      console.warn('WP Fetch notice (falling back to cached data):', error instanceof Error ? error.message : error);
       return null;
     }
   }

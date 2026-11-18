@@ -95,7 +95,7 @@ export function FlowchartTimeline() {
     {
       number: '08',
       title: '6-Month Review & Reflection',
-      subtitle: 'Clinical longitudinal evaluation of sustained cultural and financial scale',
+      subtitle: 'Strategic longitudinal evaluation of sustained cultural and financial scale',
       description:
         'Six months post-intensive, we conduct a formal institutional audit to evaluate whether the behavioral shifts, delegation protocols, and cultural cohesion have permanently embedded across the enterprise.',
       icon: CheckCircle2,
@@ -241,7 +241,7 @@ export function FlowchartTimeline() {
 
           <p className="font-sans text-base sm:text-lg text-charcoal/80 max-w-2xl leading-relaxed">
             Every breakthrough follows an intentional architecture. Scroll down to follow our
-            8-stage clinical roadmap as it unfolds from baseline diagnosis to sustained
+            8-stage transformation roadmap as it unfolds from baseline diagnosis to sustained
             multi-generational scale.
           </p>
         </Container>

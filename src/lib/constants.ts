@@ -143,8 +143,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: 'Insights & Resources',
     links: [
-      { label: 'Insights & Articles', href: '/insights' },
-      { label: 'Blog', href: '/blog' },
+      { label: 'Blog & Articles', href: '/blog' },
       { label: 'Podcast with Prerona Roy', href: '/podcast' },
       { label: 'Case Studies', href: '/case-studies' },
       { label: 'Leadership Compass', href: '/leadership-compass' },

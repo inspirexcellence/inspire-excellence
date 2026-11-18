@@ -16,7 +16,7 @@ import {
 export const metadata = createMetadata({
   title: 'Case Studies & Transformation Reports — Inspire Excellence',
   description:
-    'Real stories of executive alignment, culture transformation, and clinical leadership breakthroughs achieved with the Inspire Excellence 3P framework.',
+    'Real stories of executive alignment, culture transformation, and leadership breakthroughs achieved with the Inspire Excellence 3P framework.',
   path: '/case-studies',
 });
 
@@ -30,7 +30,7 @@ export default function CaseStudiesPage() {
             <div className="flex flex-col items-center mb-4">
               <div className="w-8 h-[1.5px] bg-[#8B72BE] mb-2.5" />
               <span className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.22em] text-[#8B72BE] uppercase">
-                EXECUTIVE CLINICAL WHITE PAPERS & CASE REPORTS
+                EXECUTIVE WHITE PAPERS & CASE REPORTS
               </span>
             </div>
 
@@ -41,7 +41,7 @@ export default function CaseStudiesPage() {
             </h1>
 
             <p className="font-sans text-base sm:text-lg text-charcoal/80 max-w-2xl leading-relaxed mb-8">
-              Explore our in-depth executive transformation reports and clinical case studies documenting real-world breakthroughs in leadership, culture, and scalable enterprise growth.
+              Explore our in-depth executive transformation reports and case studies documenting real-world breakthroughs in leadership, culture, and scalable enterprise growth.
             </p>
 
             {/* Hero Actions */}
@@ -75,7 +75,7 @@ export default function CaseStudiesPage() {
               <div className="flex items-center gap-2.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#8B72BE]" />
                 <span className="font-sans text-[11px] font-bold uppercase tracking-[0.22em] text-[#8B72BE]">
-                  SPECIAL WHITE PAPERS & CLINICAL CASE STUDIES
+                  SPECIAL WHITE PAPERS & CASE REPORTS
                 </span>
               </div>
               <div className="flex items-center gap-2 text-xs font-sans text-charcoal/70 bg-white px-3.5 py-1.5 rounded-full border border-muted-border shadow-2xs">

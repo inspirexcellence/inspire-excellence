@@ -5,7 +5,7 @@ import { FlowchartTimeline } from '@/components/flowchart/FlowchartTimeline';
 export const metadata = createMetadata({
   title: 'Transformation Flowchart | Inspire Excellence',
   description:
-    'Our 8-stage clinical roadmap: an interactive journey from outcome clarification to sustained multi-generational scale.',
+    'Our 8-stage transformation roadmap: an interactive journey from outcome clarification to sustained multi-generational scale.',
   path: '/transformation-flowchart',
 });
 

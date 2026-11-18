@@ -1,43 +1,155 @@
 import { wpClient } from './wordpress';
-import { mockPosts } from '../mock/posts';
 import { Post } from '@/types/content';
 import { WPRestPost } from './types';
+import localWpPosts from '@/data/wordpress-posts.json';
+
+export function decodeHtmlEntities(str: string): string {
+  if (!str) return '';
+  return str
+    .replace(/&#8211;/g, '–')
+    .replace(/&#8212;/g, '—')
+    .replace(/&#8216;/g, '‘')
+    .replace(/&#8217;/g, '’')
+    .replace(/&#8220;/g, '“')
+    .replace(/&#8221;/g, '”')
+    .replace(/&#038;/g, '&')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\[&hellip;\]/g, '...');
+}
+
+export function stripHtml(html: string): string {
+  if (!html) return '';
+  return html.replace(/<[^>]*>?/gm, '').trim();
+}
+
+export function mapWpPostToPost(wpPost: WPRestPost): Post {
+  // Category determination
+  let categoryName = 'Personal Transformation';
+  const terms = wpPost._embedded?.['wp:term']?.[0];
+  if (terms && Array.isArray(terms) && terms.length > 0) {
+    const meaningfulCategory = terms.find(
+      (t) => t.name.toLowerCase() !== 'uncategorized' && t.name.toLowerCase() !== 'blog'
+    );
+    if (meaningfulCategory) {
+      categoryName = meaningfulCategory.name;
+    } else if (terms[0]?.name) {
+      categoryName = terms[0].name;
+    }
+  }
+
+  // Featured image
+  const featuredMedia = wpPost._embedded?.['wp:featuredmedia']?.[0];
+  const imageUrl =
+    featuredMedia?.source_url ||
+    'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&h=800&fit=crop';
+
+  // Plain text content for reading time estimate
+  const plainText = stripHtml(wpPost.content?.rendered || '');
+  const wordCount = plainText.split(/\s+/).filter(Boolean).length;
+  const readingTime = Math.max(3, Math.ceil(wordCount / 200));
+
+  // Excerpt
+  const rawExcerpt = stripHtml(wpPost.excerpt?.rendered || '');
+  const cleanExcerpt = decodeHtmlEntities(rawExcerpt);
+
+  // Title
+  const cleanTitle = decodeHtmlEntities(wpPost.title?.rendered || 'Untitled Post');
+
+  return {
+    id: wpPost.id.toString(),
+    slug: wpPost.slug,
+    title: cleanTitle,
+    category: categoryName,
+    date: wpPost.date,
+    readingTime,
+    excerpt: cleanExcerpt,
+    content: wpPost.content?.rendered || '',
+    author: {
+      name: 'Prerona Roy',
+      role: 'Founder & Transformation Specialist',
+    },
+    imageUrl,
+  };
+}
 
 export async function getPosts(params?: Record<string, string>): Promise<Post[]> {
-  const wpPosts = await wpClient.fetch<WPRestPost[]>('posts', params);
-  
-  if (!wpPosts || wpPosts.length === 0) {
-    return mockPosts;
+  // 1. Try to fetch live from WordPress REST API
+  try {
+    const queryParams: Record<string, string> = {
+      _embed: 'true',
+      per_page: '100',
+      ...(params || {}),
+    };
+
+    const wpPosts = await wpClient.fetch<WPRestPost[]>('posts', queryParams);
+    if (wpPosts && Array.isArray(wpPosts) && wpPosts.length > 0) {
+      return wpPosts.map(mapWpPostToPost);
+    }
+  } catch (error) {
+    console.warn('Unable to reach live WordPress API, using local backup cache:', error);
   }
-  
-  // Minimal mapping for now. A robust mapping would also fetch categories, media, and author details.
-  return wpPosts.map(post => ({
-    id: post.id.toString(),
-    slug: post.slug,
-    title: post.title.rendered,
-    category: 'Blog',
-    date: post.date,
-    readingTime: 5, // Fallback
-    excerpt: post.excerpt.rendered,
-    content: post.content.rendered,
-    author: {
-      name: 'Author Name',
-      role: 'Role'
-    },
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=500&fit=crop'
-  }));
+
+  // 2. Fallback to cached JSON archive
+  const fallbackList = (localWpPosts as unknown as WPRestPost[]).map(mapWpPostToPost);
+
+  if (params?.slug) {
+    return fallbackList.filter((p) => p.slug === params.slug);
+  }
+
+  if (params?.category) {
+    return fallbackList.filter(
+      (p) => p.category.toLowerCase() === params.category.toLowerCase()
+    );
+  }
+
+  return fallbackList;
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   const posts = await getPosts({ slug });
   if (posts && posts.length > 0) {
-    return posts[0];
+    return posts.find((p) => p.slug === slug) || posts[0];
   }
-  const mockPost = mockPosts.find(p => p.slug === slug);
-  return mockPost || null;
+
+  const fallback = (localWpPosts as unknown as WPRestPost[])
+    .map(mapWpPostToPost)
+    .find((p) => p.slug === slug);
+
+  return fallback || null;
 }
 
-export async function getPostsByCategory(category: string): Promise<Post[]> {
-  const allPosts = await getPosts();
-  return allPosts.filter(post => post.category.toLowerCase() === category.toLowerCase());
+export async function getAllCategories(): Promise<string[]> {
+  const posts = await getPosts();
+  const set = new Set<string>();
+  posts.forEach((p) => {
+    if (p.category && p.category.toLowerCase() !== 'uncategorized') {
+      set.add(p.category);
+    }
+  });
+  return Array.from(set);
+}
+
+export async function getRelatedPosts(currentSlug: string, category?: string, limit = 3): Promise<Post[]> {
+  const posts = await getPosts();
+  const others = posts.filter((p) => p.slug !== currentSlug);
+
+  if (category) {
+    const sameCategory = others.filter(
+      (p) => p.category.toLowerCase() === category.toLowerCase()
+    );
+    if (sameCategory.length >= limit) {
+      return sameCategory.slice(0, limit);
+    }
+    const additional = others.filter(
+      (p) => p.category.toLowerCase() !== category.toLowerCase()
+    );
+    return [...sameCategory, ...additional].slice(0, limit);
+  }
+
+  return others.slice(0, limit);
 }

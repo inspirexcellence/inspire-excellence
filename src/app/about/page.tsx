@@ -257,7 +257,7 @@ export default function AboutPage() {
             <div className="flex flex-col items-center mb-2">
               <div className="w-8 h-[1.5px] bg-[#8B72BE] mb-2" />
               <span className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.22em] text-[#8B72BE] uppercase">
-                LEADERSHIP & CLINICAL PRACTICE
+                LEADERSHIP & EXECUTIVE PRACTICE
               </span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-navy">
