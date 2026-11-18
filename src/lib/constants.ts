@@ -124,6 +124,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     links: [
       { label: 'Our Story & Team', href: '/about' },
       { label: 'Our Approach (3P System)', href: '/approach' },
+      { label: 'Transformation Flowchart', href: '/transformation-flowchart' },
       { label: 'Transformation Areas', href: '/transformation-areas' },
       { label: 'Contact & Bookings', href: '/contact' },
     ],

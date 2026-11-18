@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useRef } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { HeroAnimation } from './HeroAnimation';
@@ -70,15 +69,18 @@ export function Hero() {
         <div className="hidden lg:block lg:col-span-5 pointer-events-none" />
       </div>
 
-      {/* Full-Bleed Right Visual with responsive mobile & desktop blending */}
+      {/* Full-Bleed Right Visual with Video Autoplay and Responsive Blending */}
       <div className="relative w-full h-[320px] sm:h-[420px] lg:h-full lg:absolute lg:right-0 lg:top-0 lg:w-[52%] xl:w-[56%] overflow-hidden z-10">
         <div className="relative w-full h-full [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%)] lg:[mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.6)_18%,black_40%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_20%)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.6)_18%,black_40%)]">
-          <Image
-            src="/images/hero/hero.png"
-            alt="Transformation architecture"
-            fill
-            className="hero-image object-cover object-top sm:object-center lg:object-right"
-            priority
+          <video
+            src="/images/hero/hero-video.mp4"
+            poster="/images/hero/hero.png"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="hero-image w-full h-full object-cover object-center"
           />
         </div>
 

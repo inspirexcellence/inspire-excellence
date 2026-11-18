@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { Hero } from '@/components/hero/Hero';
+import { WelcomeIntroModal } from '@/components/modals/WelcomeIntroModal';
 import { BeliefSection } from '@/components/sections/BeliefSection';
 import { VideoTestimonialsSection } from '@/components/sections/VideoTestimonialsSection';
 import { TrustedOrganisationsSection } from '@/components/sections/TrustedOrganisationsSection';
@@ -17,6 +18,9 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      {/* Welcome Intro Modal — Cancel to reveal website as it was */}
+      <WelcomeIntroModal />
+
       <Hero />
       <BeliefSection />
       {/* Trusted By Leaders strip placed below the 3P section */}
