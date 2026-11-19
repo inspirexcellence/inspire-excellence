@@ -2,7 +2,10 @@ export class WPClient {
   private baseUrl: string;
 
   constructor() {
-    this.baseUrl = process.env.NEXT_PUBLIC_WP_URL || process.env.WORDPRESS_API_URL || 'https://inspirexcellence.org';
+    this.baseUrl =
+      process.env.NEXT_PUBLIC_WP_URL ||
+      process.env.WORDPRESS_API_URL ||
+      'https://cms.inspirexcellence.org';
   }
 
   async fetch<T>(endpoint: string, params: Record<string, string> = {}): Promise<T | null> {
@@ -12,8 +15,14 @@ export class WPClient {
     }
 
     try {
-      const cleanBase = this.baseUrl.replace(/\/+$/, '');
-      const url = new URL(`${cleanBase}/wp-json/wp/v2/${endpoint}`);
+      // Normalise URL whether passed as https://cms.inspirexcellence.org OR https://cms.inspirexcellence.org/wp-json/wp/v2
+      const cleanBase = this.baseUrl
+        .trim()
+        .replace(/\/+$/, '')
+        .replace(/\/wp-json\/wp\/v2\/?$/, '');
+
+      const cleanEndpoint = endpoint.replace(/^\/+/, '');
+      const url = new URL(`${cleanBase}/wp-json/wp/v2/${cleanEndpoint}`);
       Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
       const controller = new AbortController();

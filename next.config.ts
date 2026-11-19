@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'cms.inspirexcellence.org',
+      },
+      {
+        protocol: 'https',
         hostname: '*.inspirexcellence.org',
       },
       {
