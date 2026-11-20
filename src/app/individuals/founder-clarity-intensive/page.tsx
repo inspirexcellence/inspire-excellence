@@ -180,8 +180,14 @@ export default function FounderClarityIntensivePage() {
                 <span className="font-sans text-xs text-gold uppercase tracking-wider font-semibold block mb-1">
                   Private 6-Month Intensive
                 </span>
-                <span className="font-serif text-2xl font-bold text-white block mb-4">
+                <span className="font-serif text-2xl font-bold text-white block mb-2">
                   Bespoke Founder Engagement
+                </span>
+                <div className="font-serif text-3xl font-bold text-gold mb-1">
+                  ₹50,000
+                </div>
+                <span className="font-sans text-[11px] text-white/60 block mb-4">
+                  6-Month Comprehensive Engagement
                 </span>
                 <p className="font-sans text-xs text-white/70 mb-6">
                   Includes 12 strategy sessions, 25–30 personal transformation hours, and unlimited asynchronous advisory.

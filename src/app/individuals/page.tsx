@@ -240,7 +240,7 @@ export default function IndividualsPage() {
                 <span>Investment</span>
               </div>
               <div className="md:col-span-4.5 lg:col-span-4 p-5 sm:p-6">
-                <span className="font-serif text-2xl sm:text-3xl font-bold text-navy block mb-1">₹1,25,000</span>
+                <span className="font-serif text-2xl sm:text-3xl font-bold text-navy block mb-1">₹50,000</span>
                 <span className="font-sans text-xs text-charcoal/70">6-Month Bespoke Engagement</span>
               </div>
               <div className="md:col-span-4.5 lg:col-span-5 p-5 sm:p-6 bg-cream/10">
