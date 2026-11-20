@@ -19,10 +19,10 @@ export function organizationSchema() {
       availableLanguage: ['en', 'hi']
     },
     sameAs: [
-      'https://facebook.com',
-      'https://youtube.com',
-      'https://linkedin.com',
-      'https://instagram.com'
+      'https://www.facebook.com/inspirexcellenceofficial/',
+      'https://www.youtube.com/@inspirexcellenceofficial',
+      'https://www.linkedin.com/company/inspirexcellence/posts/?feedView=all',
+      'https://www.instagram.com/inspirexcellenceofficial/',
     ]
   };
 }

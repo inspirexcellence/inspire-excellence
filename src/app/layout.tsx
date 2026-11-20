@@ -90,10 +90,10 @@ export default function RootLayout({
                 email: 'admin@inspirexcellence.org',
               },
               sameAs: [
-                'https://www.facebook.com/InspireExcellence',
-                'https://www.youtube.com/@inspirexcellence',
-                'https://www.linkedin.com/company/inspire-excellence',
-                'https://www.instagram.com/inspirexcellence',
+                'https://www.facebook.com/inspirexcellenceofficial/',
+                'https://www.youtube.com/@inspirexcellenceofficial',
+                'https://www.linkedin.com/company/inspirexcellence/posts/?feedView=all',
+                'https://www.instagram.com/inspirexcellenceofficial/',
               ],
             }),
           }}

@@ -19,7 +19,14 @@ export default function PodcastPage() {
             </p>
             <div className="flex gap-4">
               <button className="bg-navy text-white px-6 py-3 rounded-sm font-sans text-sm hover:bg-lavender transition-colors">Listen on Spotify</button>
-              <button className="border border-navy text-navy px-6 py-3 rounded-sm font-sans text-sm hover:bg-navy hover:text-white transition-colors">Watch on YouTube</button>
+              <a
+                href="https://www.youtube.com/@inspirexcellenceofficial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-navy text-navy px-6 py-3 rounded-sm font-sans text-sm hover:bg-navy hover:text-white transition-colors inline-block"
+              >
+                Watch on YouTube
+              </a>
             </div>
           </div>
           <div className="w-full md:w-1/3 aspect-square bg-navy text-white p-8 rounded-sm flex flex-col justify-end">

@@ -15,6 +15,6 @@ export const mockTeamMembers: TeamMember[] = [
     role: 'Leadership Consultant',
     bio: '20 years Indian Army, NDA & IIM Calcutta alumnus. Expert in crisis management, operations, executive alignment.',
     image: '/images/about/abhi.png',
-    linkedin: 'https://www.linkedin.com/company/inspire-excellence',
+    linkedin: 'https://www.linkedin.com/company/inspirexcellence/posts/?feedView=all',
   },
 ];

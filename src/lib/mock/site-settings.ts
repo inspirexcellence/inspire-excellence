@@ -18,9 +18,9 @@ export const mockSiteSettings: SiteSettings = {
   },
   hours: 'Monday–Saturday, 11:00 AM – 7:00 PM IST',
   social: {
-    facebook: 'https://facebook.com',
-    youtube: 'https://youtube.com',
-    linkedin: 'https://linkedin.com',
-    instagram: 'https://instagram.com'
+    facebook: 'https://www.facebook.com/inspirexcellenceofficial/',
+    youtube: 'https://www.youtube.com/@inspirexcellenceofficial',
+    linkedin: 'https://www.linkedin.com/company/inspirexcellence/posts/?feedView=all',
+    instagram: 'https://www.instagram.com/inspirexcellenceofficial/'
   }
 };

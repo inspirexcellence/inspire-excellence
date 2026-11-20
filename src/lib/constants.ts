@@ -39,10 +39,10 @@ export const BUSINESS_HOURS: BusinessHours = {
 };
 
 export const SOCIAL: SocialLinks = {
-  facebook: 'https://www.facebook.com/InspireExcellence',
-  youtube: 'https://www.youtube.com/@inspirexcellence',
-  linkedin: 'https://www.linkedin.com/company/inspire-excellence',
-  instagram: 'https://www.instagram.com/inspirexcellence',
+  facebook: 'https://www.facebook.com/inspirexcellenceofficial/',
+  youtube: 'https://www.youtube.com/@inspirexcellenceofficial',
+  linkedin: 'https://www.linkedin.com/company/inspirexcellence/posts/?feedView=all',
+  instagram: 'https://www.instagram.com/inspirexcellenceofficial/',
   email: 'mailto:admin@inspirexcellence.org',
 };
 
