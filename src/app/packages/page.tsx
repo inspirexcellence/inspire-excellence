@@ -2,8 +2,9 @@ import { createMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 
 export const metadata = createMetadata({
-  title: 'Packages & Pricing | Inspire Excellence',
-  description: 'Tailored transformation frameworks designed for measurable growth.',
+  title: 'Executive Packages & Advisory Pricing',
+  description: 'Tailored transformation frameworks designed for measurable growth and executive leadership development.',
+  path: '/packages',
 });
 
 export default function PackagesPage() {

@@ -1,15 +1,23 @@
-import React from 'react'
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
-import { InsightCard } from '../cards/InsightCard'
+import React from 'react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { getPosts } from '@/lib/api/posts';
+import { InsightCard } from '../cards/InsightCard';
 
-const mockPosts = [
-  { title: 'The New Leadership Mindset', slug: 'new-leadership-mindset', category: 'Leadership', date: 'Oct 12, 2023', image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop' },
-  { title: 'Why Perspective Changes Everything', slug: 'why-perspective-changes', category: 'Perspective', date: 'Sep 28, 2023', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop' },
-  { title: 'Sustainable Success Starts Within', slug: 'sustainable-success', category: 'Growth', date: 'Sep 15, 2023', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop' },
-]
+export async function InsightsSection() {
+  const allPosts = await getPosts();
+  const latestPosts = allPosts.slice(0, 3).map((p) => ({
+    title: p.title,
+    slug: p.slug,
+    category: p.category,
+    date: new Date(p.date).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    }),
+    image: p.imageUrl,
+  }));
 
-export function InsightsSection() {
   return (
     <section id="insights" className="section-padding bg-ivory border-fine-top">
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -25,12 +33,12 @@ export function InsightsSection() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {mockPosts.map((post) => (
+            {latestPosts.map((post) => (
               <InsightCard key={post.slug} post={post} />
             ))}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

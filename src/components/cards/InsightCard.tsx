@@ -14,7 +14,7 @@ interface Post {
 
 export function InsightCard({ post }: { post: Post }) {
   return (
-    <Link href={`/insights/${post.slug}`} className="group flex flex-col rounded-sm overflow-hidden border border-muted-border bg-white hover:shadow-md transition-shadow">
+    <Link href={`/blog/${post.slug}`} className="group flex flex-col rounded-sm overflow-hidden border border-muted-border bg-white hover:shadow-md transition-shadow">
       <div className="relative aspect-[16/10] overflow-hidden">
         <Image 
           src={post.image} 

@@ -10,7 +10,6 @@ import {
   Calendar,
   Clock,
   ArrowRight,
-  Sparkles,
   X,
   ChevronLeft,
   ChevronRight,
@@ -211,8 +210,7 @@ export function BlogListClient({ posts, categories }: BlogListClientProps) {
               <div>
                 {/* Badges & Meta Header */}
                 <div className="flex flex-wrap items-center gap-2.5 mb-5">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#8B72BE]/30 border border-[#8B72BE]/50 text-[#D2C5EA] text-xs font-bold uppercase tracking-widest rounded-full shadow-xs">
-                    <Sparkles className="w-3.5 h-3.5 text-[#E07A5F]" />
+                  <span className="inline-block px-4 py-1.5 bg-[#E07A5F] text-white text-xs font-bold uppercase tracking-[0.15em] rounded-[2px] shadow-sm">
                     Featured Insight
                   </span>
                   <span className="text-white/40">•</span>

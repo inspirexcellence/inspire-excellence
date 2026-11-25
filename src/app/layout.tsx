@@ -27,10 +27,13 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
     siteName: SITE_NAME,
     type: 'website',
-    locale: 'en_GB',
+    locale: 'en_IN',
   },
   twitter: {
     card: 'summary_large_image',

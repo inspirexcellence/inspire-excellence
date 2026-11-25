@@ -1,8 +1,9 @@
 import { createMetadata } from '@/lib/metadata';
 
 export const metadata = createMetadata({
-  title: 'Podcast | Inspire Excellence',
-  description: 'Conversations on leadership, mindset, and conscious evolution.',
+  title: 'Podcast with Prerona Roy — Mindset & Leadership Conversations',
+  description: 'In-depth conversations on leadership, neuroscience, mindset, and conscious personal evolution with Prerona Roy.',
+  path: '/podcast',
 });
 
 export default function PodcastPage() {

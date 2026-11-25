@@ -1,6 +1,9 @@
 import { createMetadata } from '@/lib/metadata';
 
-export const metadata = createMetadata({ title: 'Shipping & Delivery | Inspire Excellence' });
+export const metadata = createMetadata({
+  title: 'Shipping & Delivery Policy',
+  path: '/shipping-and-delivery',
+});
 
 export default function ShippingPage() {
   return (

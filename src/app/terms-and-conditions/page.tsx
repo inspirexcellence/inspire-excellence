@@ -1,6 +1,9 @@
 import { createMetadata } from '@/lib/metadata';
 
-export const metadata = createMetadata({ title: 'Terms & Conditions | Inspire Excellence' });
+export const metadata = createMetadata({
+  title: 'Terms & Conditions',
+  path: '/terms-and-conditions',
+});
 
 export default function TermsPage() {
   return (

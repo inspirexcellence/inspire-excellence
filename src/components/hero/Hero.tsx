@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { HeroAnimation } from './HeroAnimation';
@@ -69,9 +70,22 @@ export function Hero() {
         <div className="hidden lg:block lg:col-span-5 pointer-events-none" />
       </div>
 
-      {/* Full-Bleed Right Visual with Video Autoplay and Responsive Blending */}
+      {/* Full-Bleed Right Visual — Optimized Image for Mobile, Smooth Video for Desktop */}
       <div className="relative w-full h-[320px] sm:h-[420px] lg:h-full lg:absolute lg:right-0 lg:top-0 lg:w-[52%] xl:w-[56%] overflow-hidden z-10">
         <div className="relative w-full h-full [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%)] lg:[mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.6)_18%,black_40%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_20%)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.6)_18%,black_40%)]">
+          {/* Mobile Optimized Static Poster (Saves bandwidth & boosts Core Web Vitals on mobile devices) */}
+          <div className="block md:hidden relative w-full h-full">
+            <Image
+              src="/images/hero/hero.png"
+              alt="Inspire Excellence Transformation"
+              fill
+              priority
+              sizes="100vw"
+              className="hero-image w-full h-full object-cover object-center"
+            />
+          </div>
+
+          {/* Desktop/Tablet Smooth Ambient Looping Video */}
           <video
             src="/images/hero/hero-video.mp4"
             poster="/images/hero/hero.png"
@@ -79,8 +93,8 @@ export function Hero() {
             muted
             loop
             playsInline
-            preload="auto"
-            className="hero-image w-full h-full object-cover object-center"
+            preload="metadata"
+            className="hero-image hidden md:block w-full h-full object-cover object-center"
           />
         </div>
 

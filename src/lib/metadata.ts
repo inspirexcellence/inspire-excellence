@@ -16,18 +16,29 @@ export function createMetadata({
   ogImage,
   noIndex = false,
 }: MetadataProps): Metadata {
-  const url = path ? `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}` : SITE_URL;
+  // Strip any existing brand suffixes to prevent "Title | Inspire Excellence | Inspire Excellence"
+  const cleanTitle = title
+    .replace(/\s*\|\s*Inspire\s*Excellence.*/i, '')
+    .trim();
+
+  // Ensure absolute canonical URL
+  const normalizedPath = path
+    ? path.startsWith('/')
+      ? path
+      : `/${path}`
+    : '';
+  const url = normalizedPath ? `${SITE_URL}${normalizedPath}` : SITE_URL;
   const defaultImage = `${SITE_URL}/og-image.jpg`;
 
   return {
-    title,
+    title: cleanTitle,
     description,
     metadataBase: new URL(SITE_URL),
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${title} | ${SITE_NAME}`,
+      title: `${cleanTitle} | ${SITE_NAME}`,
       description,
       url,
       siteName: SITE_NAME,
@@ -36,7 +47,7 @@ export function createMetadata({
           url: ogImage || defaultImage,
           width: 1200,
           height: 630,
-          alt: title,
+          alt: cleanTitle,
         },
       ],
       locale: 'en_IN',
@@ -44,7 +55,7 @@ export function createMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${title} | ${SITE_NAME}`,
+      title: `${cleanTitle} | ${SITE_NAME}`,
       description,
       images: [ogImage || defaultImage],
     },

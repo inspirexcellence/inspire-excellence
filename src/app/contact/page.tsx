@@ -5,8 +5,9 @@ import { Container } from '@/components/ui/Container';
 import Link from 'next/link';
 
 export const metadata = createMetadata({
-  title: 'Contact Us | Inspire Excellence',
-  description: "Let's create what's possible, together.",
+  title: 'Contact Us — Start a Transformation Conversation',
+  description: "Connect directly with Prerona Roy and the Inspire Excellence team. Let's create what's possible, together.",
+  path: '/contact',
 });
 
 export default function ContactPage() {

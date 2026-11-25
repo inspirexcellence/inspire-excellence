@@ -1,8 +1,9 @@
 import { createMetadata } from '@/lib/metadata';
 
 export const metadata = createMetadata({
-  title: 'Our Services | Inspire Excellence',
-  description: 'End-to-end support for transformation that lasts.',
+  title: 'Our Transformation Services & Advisory Frameworks',
+  description: 'End-to-end support for personal, leadership, and organizational transformation that creates measurable impact.',
+  path: '/services',
 });
 
 export default function ServicesPage() {

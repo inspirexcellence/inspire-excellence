@@ -1,8 +1,9 @@
 import { createMetadata } from '@/lib/metadata';
 
 export const metadata = createMetadata({
-  title: 'Leadership Compass | Inspire Excellence',
-  description: 'Interactive self-assessment and recalibration tool.',
+  title: 'Leadership Compass — Executive Self-Assessment Tool',
+  description: 'Interactive self-assessment and recalibration tool to evaluate your leadership clarity, resilience, and systemic effectiveness.',
+  path: '/leadership-compass',
 });
 
 export default function LeadershipCompassPage() {

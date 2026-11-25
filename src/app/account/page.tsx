@@ -1,7 +1,8 @@
 import { createMetadata } from '@/lib/metadata';
 
 export const metadata = createMetadata({
-  title: 'Member Portal | Inspire Excellence',
+  title: 'Member Portal & Dashboard',
+  path: '/account',
 });
 
 export default function AccountPage() {

@@ -12,7 +12,7 @@ export const SITE_NAME = 'Inspire Excellence';
 export const SITE_TAGLINE = 'People. Perspective. Process.';
 export const SITE_DESCRIPTION =
   'We partner with visionary individuals and forward-thinking organisations to challenge conventional thinking, redefine possibilities and turn ambitious visions into extraordinary outcomes.';
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://inspirexcellence.org';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inspirexcellence.org';
 
 // ---- Contact ----
 
@@ -107,11 +107,10 @@ export const MAIN_NAV: NavItem[] = [
     label: 'Transformation Areas',
     href: '/transformation-areas',
     children: [
-      { label: 'Leadership', href: '/transformation-areas/leadership' },
-      { label: 'Organisations', href: '/transformation-areas/organisations' },
-      { label: 'People', href: '/transformation-areas/people' },
-      { label: 'Performance', href: '/transformation-areas/performance' },
-      { label: 'Relationships', href: '/transformation-areas/relationships' },
+      { label: 'Individual Transformation', href: '/transformation-areas/individual' },
+      { label: 'Founders & Leaders', href: '/transformation-areas/leadership' },
+      { label: 'People & Teams', href: '/transformation-areas/people' },
+      { label: 'Organisational Transformation', href: '/transformation-areas/organisations' },
     ],
   },
   { label: 'Case Studies', href: '/case-studies' },

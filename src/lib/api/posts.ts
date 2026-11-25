@@ -27,19 +27,41 @@ export function stripHtml(html: string): string {
   return html.replace(/<[^>]*>?/gm, '').trim();
 }
 
+// Slugs of casual / off-topic posts that dilute executive leadership & transformation focus
+const EXCLUDED_SLUGS = new Set([
+  'swipe-right-for-self-love-avoiding-the-pitfalls-of-online-romance',
+  'strategies-for-navigating-office-politics-to-thrive-not-just-survive',
+  'the-gratitude-effect-nurturing-appreciation-for-a-brighter-you',
+]);
+
 export function mapWpPostToPost(wpPost: WPRestPost): Post {
-  // Category determination
+  // Category determination — ensure no post is ever labeled "Uncategorized" or generic "Blog"
   let categoryName = 'Personal Transformation';
   const terms = wpPost._embedded?.['wp:term']?.[0];
   if (terms && Array.isArray(terms) && terms.length > 0) {
     const meaningfulCategory = terms.find(
-      (t) => t.name.toLowerCase() !== 'uncategorized' && t.name.toLowerCase() !== 'blog'
+      (t) =>
+        t.name.toLowerCase() !== 'uncategorized' &&
+        t.name.toLowerCase() !== 'blog'
     );
     if (meaningfulCategory) {
       categoryName = meaningfulCategory.name;
-    } else if (terms[0]?.name) {
-      categoryName = terms[0].name;
+    } else {
+      // Map based on post topic
+      const slug = (wpPost.slug || '').toLowerCase();
+      if (slug.includes('leadership') || slug.includes('leader')) {
+        categoryName = 'Leadership Transformation';
+      } else if (slug.includes('employee') || slug.includes('team')) {
+        categoryName = 'People & Teams';
+      } else {
+        categoryName = 'Personal Transformation';
+      }
     }
+  }
+
+  // Normalize generic names
+  if (categoryName.toLowerCase() === 'uncategorized' || categoryName.toLowerCase() === 'blog') {
+    categoryName = 'Personal Transformation';
   }
 
   // Featured image
@@ -88,14 +110,27 @@ export async function getPosts(params?: Record<string, string>): Promise<Post[]>
 
     const wpPosts = await wpClient.fetch<WPRestPost[]>('posts', queryParams);
     if (wpPosts && Array.isArray(wpPosts) && wpPosts.length > 0) {
-      return wpPosts.map(mapWpPostToPost);
+      const livePosts = wpPosts
+        .map(mapWpPostToPost)
+        .filter((p) => !EXCLUDED_SLUGS.has(p.slug));
+      if (params?.slug) {
+        return livePosts.filter((p) => p.slug === params.slug);
+      }
+      if (params?.category) {
+        return livePosts.filter(
+          (p) => p.category.toLowerCase() === params.category.toLowerCase()
+        );
+      }
+      return livePosts;
     }
   } catch (error) {
     console.warn('Unable to reach live WordPress API, using local backup cache:', error);
   }
 
   // 2. Fallback to cached JSON archive
-  const fallbackList = (localWpPosts as unknown as WPRestPost[]).map(mapWpPostToPost);
+  const fallbackList = (localWpPosts as unknown as WPRestPost[])
+    .map(mapWpPostToPost)
+    .filter((p) => !EXCLUDED_SLUGS.has(p.slug));
 
   if (params?.slug) {
     return fallbackList.filter((p) => p.slug === params.slug);

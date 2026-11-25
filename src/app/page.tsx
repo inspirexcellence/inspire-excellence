@@ -9,10 +9,15 @@ import { StatsSection } from '@/components/sections/StatsSection';
 import { InsightsSection } from '@/components/sections/InsightsSection';
 import { CTASection } from '@/components/sections/CTASection';
 
+import { SITE_URL } from '@/lib/constants';
+
 export const metadata: Metadata = {
   title: 'Inspire Excellence — Transformation That Creates Impact',
   description:
     'We partner with individuals and organisations to unlock potential, shift perspective and create meaningful, lasting change.',
+  alternates: {
+    canonical: SITE_URL,
+  },
 };
 
 export default function HomePage() {

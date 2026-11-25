@@ -5,8 +5,9 @@ import { Button } from '@/components/ui/Button';
 import { ThreePSystem } from '@/components/three-p/ThreePSystem';
 
 export const metadata = createMetadata({
-  title: 'Our Approach | Inspire Excellence',
-  description: 'A different way of seeing. A better way of creating impact.',
+  title: 'Our Approach — The 3P System (People, Perspective, Process)',
+  description: 'A different way of seeing. A better way of creating impact through our proprietary 3P transformation system.',
+  path: '/approach',
 });
 
 export default function ApproachPage() {

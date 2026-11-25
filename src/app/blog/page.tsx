@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata = createMetadata({
-  title: 'Blog & Insights | Inspire Excellence',
+  title: 'Blog & Insights — Leadership, Neuroscience & Culture',
   description:
     'Explore actionable perspectives on leadership, neuroscience, cognitive mastery, and personal transformation by Prerona Roy and the Inspire Excellence team.',
+  path: '/blog',
 });
 
 export const revalidate = 1800;
@@ -23,7 +24,7 @@ export default async function BlogPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-[#F5EDE4]/70 to-[#FDF9F3] border-b border-[#E8DDD0]">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#8B72BE]/15 border border-[#8B72BE]/30 text-[#1A1A40] text-xs font-semibold uppercase tracking-widest rounded-full mb-6">
+          <div className="inline-flex items-center px-5 sm:px-6 py-2.5 sm:py-3 bg-[#1A1A40] text-white text-xs sm:text-sm font-bold tracking-[0.2em] uppercase rounded-[2px] border-l-4 border-l-[#E07A5F] shadow-md mb-6">
             <span>Our Latest Thinking</span>
           </div>
 

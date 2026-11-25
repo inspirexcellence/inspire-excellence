@@ -1,6 +1,9 @@
 import { createMetadata } from '@/lib/metadata';
 
-export const metadata = createMetadata({ title: 'Privacy Policy | Inspire Excellence' });
+export const metadata = createMetadata({
+  title: 'Privacy Policy',
+  path: '/privacy-policy',
+});
 
 export default function PrivacyPolicyPage() {
   return (

@@ -1,6 +1,9 @@
 import { createMetadata } from '@/lib/metadata';
 
-export const metadata = createMetadata({ title: 'Refund & Cancellation Policy | Inspire Excellence' });
+export const metadata = createMetadata({
+  title: 'Refund & Cancellation Policy',
+  path: '/refund-and-cancellation',
+});
 
 export default function RefundPage() {
   return (
